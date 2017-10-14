@@ -69,6 +69,12 @@ socket.on('newLocationMessage', function (message) {
   scrollToBottom();
 });
 
+socket.on('newSe', function (res) {
+
+    alert(JSON.stringify(res));
+ 
+});
+
 jQuery('#message-form').on('submit', function (e) {
   e.preventDefault();
 
@@ -98,5 +104,16 @@ locationButton.on('click', function () {
   }, function () {
     locationButton.removeAttr('disabled').text('Send location');
     alert('Unable to fetch location.');
+  });
+});
+
+
+jQuery('#search-form').on('submit', function (e) {
+  e.preventDefault();
+
+  var messageTextbox = jQuery('[name=search]');
+
+  socket.emit('searchM', {
+    text: messageTextbox.val()
   });
 });

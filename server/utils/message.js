@@ -16,4 +16,11 @@ var generateLocationMessage = (from, latitude, longitude) => {
   };
 };
 
-module.exports = {generateMessage, generateLocationMessage};
+var genelas = (name)=>{
+    return{
+      name
+    };
+};
+
+
+module.exports = {generateMessage, generateLocationMessage,genelas};
